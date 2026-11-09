@@ -88,71 +88,110 @@ using namespace std;
 
 
 
-class Student {
+//class Student {
+//protected:
+//	string name;
+//	string surname;
+//	int averageMark;
+//
+//	string group;
+//	string specialization;
+//public:
+//	Student():name("no name"),surname("no surname"),averageMark(0),group("no group"),specialization("no specialization"){}
+//	Student(string n,string s,int a,string g,string sp):name(n),surname(s),averageMark(a),group(g),specialization(sp){}
+//	
+//	void changeMark(int m) {
+//		averageMark = m;
+//	}
+//
+//	void celebrate()const {
+//		cout << "mivina po akcii" << endl;
+//	}
+//
+//	void print()const {
+//		cout << "name: " << name << endl;
+//		cout << "surname: " << surname << endl;
+//		cout << "averageMark: " << averageMark << endl;
+//		cout << "group: " << group << endl;
+//		cout << "specialization: " << specialization << endl;
+//	}
+//};
+//class Aspirant:public Student {
+//	string kandidatTheme;
+//	int pageAmount;
+//public:
+//	Aspirant():kandidatTheme("no theme"),pageAmount(0),Student(){}
+//	Aspirant(string n,string s,int a,string g,string sp,string kt,int pa):kandidatTheme(kt),pageAmount(pa),Student(n,s,a,g,sp){}
+//	
+//	void writeDesertation(int p) {
+//		pageAmount += p;
+//	}
+//
+//	void defendDesertation()const {
+//		cout << "im defending desertation" << endl;
+//	}
+//
+//	void print()const {
+//		Student::print();
+//		cout << "kandidatTheme: "<<kandidatTheme <<endl;
+//		cout << "pageAmount: "<<pageAmount <<endl;
+//	}
+//};
+
+
+
+class Passport {
 protected:
-	string name;
-	string surname;
-	int averageMark;
-
-	string group;
-	string specialization;
+		string name;
+		string surname;
+		string citizenship;
+		string placeOfBirth;
 public:
-	Student():name("no name"),surname("no surname"),averageMark(0),group("no group"),specialization("no specialization"){}
-	Student(string n,string s,int a,string g,string sp):name(n),surname(s),averageMark(a),group(g),specialization(sp){}
+	Passport():name("no name"),surname("no surname"),citizenship("no citizenship"),placeOfBirth("no place of birth"){}
+	Passport(string n, string s, string c, string p):name(n),surname(s),citizenship(c),placeOfBirth(p){}
 	
-	void changeMark(int m) {
-		averageMark = m;
-	}
-
-	void celebrate()const {
-		cout << "mivina po akcii" << endl;
-	}
-
 	void print()const {
-		cout << "name: " << name << endl;
-		cout << "surname: " << surname << endl;
-		cout << "averageMark: " << averageMark << endl;
-		cout << "group: " << group << endl;
-		cout << "specialization: " << specialization << endl;
+		cout << "name: " << name << "/ surname: " << surname << endl;
+		cout << "citizenship: " << citizenship << "/ placeOfBirth: " << placeOfBirth << endl;
+		cout << endl;
 	}
 };
-class Aspirant:public Student {
-	string kandidatTheme;
-	int pageAmount;
+class ForeignPassport :public Passport {
+	string visas;
+	int passportNum;
 public:
-	Aspirant():kandidatTheme("no theme"),pageAmount(0),Student(){}
-	Aspirant(string n,string s,int a,string g,string sp,string kt,int pa):kandidatTheme(kt),pageAmount(pa),Student(n,s,a,g,sp){}
+	ForeignPassport():visas("no visas"),passportNum(0),Passport(){}
+	ForeignPassport(string v,int p, string n, string s, string c, string pb):visas(v),passportNum(p),Passport(n,s,c,pb){}
 	
-	void writeDesertation(int p) {
-		pageAmount += p;
-	}
-
-	void defendDesertation()const {
-		cout << "im defending desertation" << endl;
-	}
-
 	void print()const {
-		Student::print();
-		cout << "kandidatTheme: "<<kandidatTheme <<endl;
-		cout << "pageAmount: "<<pageAmount <<endl;
+		Passport::print();
+		cout << "visas: " << visas << "/ passport number: " << passportNum << endl;
 	}
 };
-
-
 
 int main()
 {
+	Passport p("oleg", "vinik", "Ukraine", "boyarka");
+	p.print();
+	ForeignPassport f("america,italy", 89,"sasha", "goldenko", "Ukraine", "kvasiliv");
+	f.print();
+
+
+
+
+
+	//1
 	/*Student s("koshel", "malii", 9, "group 4", "dvornik");
 	s.print();
 	s.celebrate();
 	s.changeMark(10);
 	s.print();*/
 
-	Aspirant a("tyoma", "velikii", 9, "group 9", "shlyapnik","mitla",8);
-	a.defendDesertation();
-	a.print();
-	a.writeDesertation(90);
-	a.print();
+	//Aspirant a("tyoma", "velikii", 9, "group 9", "shlyapnik","mitla",8);
+	//a.defendDesertation();
+	//a.print();
+	//a.writeDesertation(90);
+	//a.print();
 
 
 
